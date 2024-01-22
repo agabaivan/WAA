@@ -1,5 +1,7 @@
 package com.agaba.waacourse.controller;
 
+import com.agaba.waacourse.annotations.ExecutionTime;
+import com.agaba.waacourse.entity.Comment;
 import com.agaba.waacourse.entity.Post;
 import com.agaba.waacourse.entity.User;
 import com.agaba.waacourse.entity.response.UserDto;
@@ -15,10 +17,12 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @ExecutionTime
     @GetMapping
     List<User> findAll(){
         return userService.findAll();
     }
+
 
     @GetMapping("/{id}")
     public UserDto findById(@PathVariable("id") long id){
@@ -32,9 +36,17 @@ public class UserController {
     void saveUser(@RequestBody User user){
         userService.saveUser(user);
     }
-    @GetMapping("/{count}")
+    //@GetMapping("/{count}")
     List<User> findUsersWithMoreThanOnePost(@PathVariable("count") int count){
         return userService.findUsersWithMoreThanOnePost(count);
+    }
+    //@GetMapping("/{title}")
+    List<User> findUsersWithPostsOfATitle(@PathVariable("title")String title){
+        return userService.findUsersWithPostsOfATitle(title);
+    }
+    @GetMapping("/{userid}/posts/{postId}/commentList/{commentId}")
+    public Comment specificComment (@PathVariable("userid") long userId,@PathVariable("postId") long postId,@PathVariable("commentId") long commentId){
+        return userService.specificComment(userId, postId, commentId);
     }
 
 }

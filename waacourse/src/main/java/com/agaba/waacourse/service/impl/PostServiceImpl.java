@@ -1,5 +1,6 @@
 package com.agaba.waacourse.service.impl;
 
+import com.agaba.waacourse.entity.Comment;
 import com.agaba.waacourse.entity.Post;
 import com.agaba.waacourse.entity.response.Postdto;
 import com.agaba.waacourse.repo.PostRepo;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -38,4 +40,9 @@ public class PostServiceImpl implements PostService {
         return postRepo.findPostsByTitle(title);
     }
 
+    @Override
+    public void saveComment(long id, Comment comment) {
+        Optional <Post> optionalPost = postRepo.findById(id);
+        optionalPost.ifPresent(post -> post.addComment(comment));
+    }
 }

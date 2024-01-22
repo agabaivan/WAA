@@ -1,5 +1,6 @@
 package com.agaba.waacourse.service;
 
+import com.agaba.waacourse.entity.Comment;
 import com.agaba.waacourse.entity.Post;
 import com.agaba.waacourse.entity.response.Postdto;
 
@@ -12,4 +13,6 @@ public interface PostService {
 
     void savePost(Post post);
     List<Post> findPostsByTitle(String title);
+
+    void saveComment(long id, Comment comment);
 }

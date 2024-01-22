@@ -1,5 +1,6 @@
 package com.agaba.waacourse.controller;
 
+import com.agaba.waacourse.entity.Comment;
 import com.agaba.waacourse.entity.Post;
 import com.agaba.waacourse.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class PostController {
     /*@GetMapping("/{id}")
      public Postdto findById(@PathVariable("id") long id){
         return postService.findById(id);
-    }*/
+    }
 
     @PostMapping("/")
     public void savePost(@RequestBody Post post) {
@@ -32,5 +33,10 @@ public class PostController {
     public List<Post> findPostsByTitle(@PathVariable("title") String title){
         return postService.findPostsByTitle(title);
     }
+    @PostMapping("/{id}/comments")
+    public void saveComment(@RequestBody Comment comment, @PathVariable("id") long id) {
+        postService.saveComment(id, comment);
+    }
+    */
 
 }

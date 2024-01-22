@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,11 +22,12 @@ public class Post {
         String author;
         @OneToMany(cascade = CascadeType.ALL)
         @JoinColumn
-        List<Comment> commentList;
+        List<Comment> commentList = new ArrayList<>();
 
-        void addComment(Comment comment){
+        public void addComment(Comment comment){
                 commentList.add(comment);
         }
+
 
         public Post(String title, String content, String author) {
                 this.title = title;
