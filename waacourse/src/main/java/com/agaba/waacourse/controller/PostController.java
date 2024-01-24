@@ -2,6 +2,7 @@ package com.agaba.waacourse.controller;
 
 import com.agaba.waacourse.entity.Comment;
 import com.agaba.waacourse.entity.Post;
+import com.agaba.waacourse.entity.response.Postdto;
 import com.agaba.waacourse.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class PostController {
         return postService.findAll();
     }
 
-    /*@GetMapping("/{id}")
+    @GetMapping("/{id}")
      public Postdto findById(@PathVariable("id") long id){
         return postService.findById(id);
     }
@@ -37,6 +38,6 @@ public class PostController {
     public void saveComment(@RequestBody Comment comment, @PathVariable("id") long id) {
         postService.saveComment(id, comment);
     }
-    */
+
 
 }

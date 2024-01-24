@@ -37,11 +37,11 @@ public class UserController {
         userService.saveUser(user);
     }
     //@GetMapping("/{count}")
-    List<User> findUsersWithMoreThanOnePost(@PathVariable("count") int count){
+    List<User> findUsersWithMoreThanOnePost(@RequestParam("count") int count){
         return userService.findUsersWithMoreThanOnePost(count);
     }
     //@GetMapping("/{title}")
-    List<User> findUsersWithPostsOfATitle(@PathVariable("title")String title){
+    List<User> findUsersWithPostsOfATitle(@RequestParam("title")String title){
         return userService.findUsersWithPostsOfATitle(title);
     }
     @GetMapping("/{userid}/posts/{postId}/commentList/{commentId}")
