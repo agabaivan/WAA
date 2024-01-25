@@ -21,6 +21,7 @@ public class User {
     @JoinColumn
     private List<Post> posts = new ArrayList<>();
     String name;
+    int age;
 
     public User(String name) {
         this.name = name;
