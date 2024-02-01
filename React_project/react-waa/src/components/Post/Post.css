@@ -1,0 +1,23 @@
+
+.posts-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .post {
+    background-color: #3366cc;
+    width: 150px;
+    height: 150px;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px; /* Optional: Add rounded corners */
+  }
+  
+  .post p {
+    margin: 0;
+    text-align: center; /* Center text within squares */
+  }
+  
+  .post .id {
+    font-weight: bold;
+  }
